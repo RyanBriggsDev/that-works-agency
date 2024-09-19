@@ -1,0 +1,12 @@
+{
+  "name": "that-works-agency",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "shopify theme dev -s thatworks-agency-test --theme-editor-sync --live-reload full-page"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

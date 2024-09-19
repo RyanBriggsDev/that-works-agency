@@ -44,6 +44,13 @@
           "settings": {
           }
         },
+        "recently_viewed_gJbCGc": {
+          "type": "recently_viewed",
+          "settings": {
+            "title": "Recently viewed",
+            "product_limit": 3
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -59,12 +66,13 @@
         "quantity_selector",
         "buy_buttons",
         "description",
+        "recently_viewed_gJbCGc",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "stacked",

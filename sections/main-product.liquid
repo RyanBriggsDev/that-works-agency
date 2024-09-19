@@ -471,6 +471,25 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
+              
+              {% comment %} PDP Recently Viewed Section {% endcomment %}
+              {% when 'recently_viewed' %}
+                {% liquid
+                  assign title = block.settings.title
+                  assign title_position = block.settings.title_position
+                %}
+                <div 
+                  class="recently-viewed"
+                  product-handle="{{ product.handle }}"
+                  product-limit="{{ block.settings.product_limit }}"
+                  style="display:none;"
+                >
+                  {% if title != blank %}
+                    <h2 style="text-align:{{ title_position }};">{{ title }}</h2>
+                  {% endif %}
+                  <div class="upsell-products-container"></div>
+                </div>
+
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -912,6 +931,48 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        }
+      ]
+    },
+    {
+      "type": "recently_viewed",
+      "name": "t:sections.main-product.blocks.recently_viewed.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.main-product.blocks.recently_viewed.settings.title.label"
+        },
+        {
+          "type": "select",
+          "id": "title_position",
+          "label": "t:sections.main-product.blocks.recently_viewed.settings.title_position.label",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.main-product.blocks.recently_viewed.settings.title_position.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.main-product.blocks.recently_viewed.settings.title_position.options__2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.main-product.blocks.recently_viewed.settings.title_position.options__3.label"
+            },
+          ],
+          "default": "left"
+        },
+        {
+          "type": "range",
+          "id": "product_limit",
+          "min": 2,
+          "max": 9,
+          "step": 1,
+          "unit": "cds",
+          "label": "t:sections.main-product.blocks.recently_viewed.settings.product_limit.label",
+          "default": 3
         }
       ]
     },
